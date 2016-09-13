@@ -1,20 +1,7 @@
 <?php
-require_once 'Factory/WinFactory.php';
-require_once 'Factory/OSXFactory.php';
+require_once 'AbstractButtonFactory.php';
 
 $appearance = "osx";
-$factory = NULL;
-
-switch ($appearance) {
-    case "win":
-        $factory = new WinFactory();
-        break;
-    case "osx":
-        $factory = new OSXFactory();
-        break;
-    default:
-        break;
-}
-
+$factory = new AbstractButtonFactory();
 $button = $factory->CreateButton();
 $button->Paint();
